@@ -1,15 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin-Dashboard</title>
     <link rel="stylesheet" href="./assets/CSS/main.css">
 </head>
+
 <body>
-    <aside class="side-bar"></aside>
-    <header class="header"></header>
-    <main class="main"></main>
-    <footer class="footer"></footer>
+    <nav class="nav-bar">
+        <div class="logo-section">Dashboard</div>
+        <ul class="primary-navigation">
+            <li>Home</li>
+            <li>Profile</li>
+            <li>Messages</li>
+            <li>History</li>
+            <li>Tasks</li>
+            <li>Communities</li>
+        </ul>
+        <ul class="more-navigation">
+            <li>Settings</li>
+            <li>Support</li>
+            <li>Privacy</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <header class="header">
+            <section class="upper">
+                <div class="left"><input type="search"></div>
+                <div class="right">
+                    <ul>
+                        <li class="theme-toggler"></li>
+                        <li class="notifications"></li>
+                        <li class="profile-pic"><img src="" alt=""></li>
+                        <li class="username">Robert Ssekyene</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="lower">
+                <div class="left">
+                    <img src="" alt="" class="profile-pic">
+                    <div class="profile-handles">Robert Ssekyene (@0xRob101)</div>
+                </div>
+            </section>
+        </header>
+        <main class="main">
+            <div class="projects">
+                <h2>Your Projects</h2>
+                <div class="wrapper">
+                    <div class="card">
+                        <h3 class="card-title">Super Cool Project</h3>
+                        <p class="card-desc">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse repudiandae
+                            voluptatem saepe repellat alias in illo molestias, assumenda voluptas sunt? Eius quo debitis
+                            in rem aut. Amet, delectus atque
+                        </p>
+                        <div class="card-footer">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <aside class="feed">
+                <div>
+                    <h2>Announcements</h2>
+                    <div class="announcements">
+                        <div class="content">
+                            <h4>Site Maintenance</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab non adipisci cum impedit labore nesciunt quia error perferendis quos accusamus!</p>
+                        </div>
+                        <div class="content">
+                            <h4>Site Maintenance</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore rerum id error minima a autem?</p>
+                        </div>
+                        <div class="content">
+                            <h4>Site Maintenance</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus?</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Trending</h2>
+                    <div class="trends">
+                        <div class="trending">
+                            <img src="" alt="" class="profile-pic">
+                            <div class="project">airbnb dashboard</div>
+                        </div>
+                        <div class="trending">
+                            <img src="" alt="" class="profile-pic">
+                            <div class="project">Super Cool project</div>
+                        </div>
+                        <div class="trending">
+                            <img src="" alt="" class="profile-pic">
+                            <div class="project">Nice project</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+        <footer class="footer">
+            Created by <a href="https://github.com/Ssekyene/" target="_blank" rel="noopener noreferrer">Robert Ssekyene</a> as part of <a href="https://www.theodinproject.com/" target="_blank" rel="noopener noreferrer">TheOdinProject</a> assignments.
+        </footer>
+    </div>
 </body>
+
 </html>

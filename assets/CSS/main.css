@@ -1,1 +1,23 @@
 @import url(./modern-reset.css);
+
+:root.dark {
+    --color-base-bg: #010409;
+    --color-primary-bg: #3d444d;
+    --color-secondary-bg: #212830;
+    --color-base-text: #f0f6fc;
+
+
+    /* --border-btn: 1px solid rgb(220, 220, 220);
+    --color-btn-bg: rgb(36, 36, 36); */
+}
+
+:root.light {
+    --color-base-bg: #657786;
+    --color-primary-bg: #f0f6fc;
+    --color-secondary-bg:#0075ff;
+    --color-base-text: #010409;
+    --color-primary-text: #fff;
+    --color-secondary-text: #3a3939;
+    /* --border-btn: 1px solid rgb(36, 36, 36);
+    --color-btn-bg: rgb(220, 220, 220); */
+}
