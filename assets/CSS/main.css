@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+:root {
+    --border-radius: 1em;
+}
+
 :root.dark {
     --color-base-bg: #010409;
     --color-primary-bg: #3d444d;
@@ -20,8 +24,11 @@
     --color-primary-bg: #FFFFFF;
     --color-secondary-bg:#1992D4;
     --color-base-text: #010409;
+
     --color-primary-text: #fff;
     --color-secondary-text: #3a3939;
+    --color-highlight: #F0B429;
+    --box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
     /* --border-btn: 1px solid rgb(36, 36, 36);
     --color-btn-bg: rgb(220, 220, 220); */
 }
@@ -33,6 +40,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 4fr;
 }
+
+button {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.4em 1.4em;
+    cursor: pointer;
+}
+
 
 .nav-bar ul,
 .header ul {
@@ -76,7 +91,8 @@ body {
     width: max(38px, 22%);
 }
 
-[class$=-nav] svg {
+[class$=-nav] svg,
+.header svg {
     width: 28px;
 }
 
@@ -106,7 +122,9 @@ body {
     display: grid;
     grid-template-rows: 55px 55px;
     align-items: center;
-    padding: 0 38px;
+    gap: 18px;
+    padding: 16px 38px;
+    box-shadow: var(--box-shadow);
     
 }
 
@@ -114,6 +132,11 @@ body {
 .header .lower {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    align-items: center;
+}
+
+.header .justify-end{
+    justify-self: end;
 }
 
 .search-bar {
@@ -129,10 +152,79 @@ body {
 }
 
 .search-bar input {
-    width: 80%;
+    width: 44vw;
     background-color: var(--color-base-bg);
     border: none;
-    border-radius: 0.9em;
+    border-radius: var(--border-radius);
     padding: 0.2em 0.7em;
+}
+
+.search-bar input:focus {
+    outline: 2px var(--color-highlight) solid;
+}
+
+.notification-panel {
+    display: flex;
+    gap: calc(8px + 2%);
+    align-items: center;
+}
+
+.notification-panel > li {
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 100%;
+    width: 38px;
+    height: 38px;
+}
+
+.notification-panel .username {
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+.user-info {
+    display: flex;
+    gap: 1em;
+    font-size: 1.2rem;
+
+}
+
+.user-info > [class^=profile-] {
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.user-info .profile-pic {
+    width: 3.1em;
+    height: 3.1em;
+}
+
+.user-info .profile-handles {
+    position: relative;
+    font-weight: 900;
+    align-self: flex-end;
+}
+
+.user-info .profile-handles::before {
+    content: "Hi there,";
+    font-size: 0.8rem;
+    position: absolute;
+    top: -18px;
+    left: 0;
+    font-weight: 500;
+}
+
+.action-buttons .button {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-primary-text);
+    background-color: var(--color-secondary-bg);
+}
+
+.action-buttons > .button:not(:last-child) {
+    margin-right: calc(0.2rem + 0.7vw);
 
 }
