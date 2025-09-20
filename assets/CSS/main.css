@@ -82,6 +82,7 @@ body {
 
 [class$=-nav] {
     font-size: clamp(16px,calc(3vw + 0.2rem), 1.1rem);
+    font-weight: 500;
 }
 
 [class$=-nav] > :not(:last-child) {
@@ -96,11 +97,42 @@ body {
     grid-template-rows: 1fr 4fr;
 }
 
-.header, main {
+.main {
     padding: 20px;
 }
 
 .header {
     background-color: var(--color-primary-bg);
+    display: grid;
+    grid-template-rows: 55px 55px;
+    align-items: center;
+    padding: 0 38px;
     
+}
+
+.header .upper,
+.header .lower {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-bar svg {
+    width: 24px;
+    display: inline;
+    flex-shrink: 0;
+}
+
+.search-bar input {
+    width: 80%;
+    background-color: var(--color-base-bg);
+    border: none;
+    border-radius: 0.9em;
+    padding: 0.2em 0.7em;
+
 }
