@@ -26,7 +26,8 @@
     --color-base-text: #010409;
 
     --color-primary-text: #fff;
-    --color-secondary-text: #3a3939;
+    --color-secondary-text: rgb(59, 58, 58);
+    --color-secondary-text-2: rgba(59, 58, 58, 0.2);
     --color-highlight: #F0B429;
     --box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
     /* --border-btn: 1px solid rgb(36, 36, 36);
@@ -39,6 +40,8 @@ body {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
+    color: var(--color-base-text);
+    background-color: var(--colo);
 }
 
 button {
@@ -110,7 +113,7 @@ button {
     background-color: var(--color-base-bg);
     color: var(--color-base-text);
     display: grid;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 168px auto;
 }
 
 .main {
@@ -155,15 +158,18 @@ button {
 }
 
 .search-bar input {
-    width: 44vw;
+    width: 45vw;
     background-color: var(--color-base-bg);
+    color: var(--color-secondary-text);
     border: none;
     border-radius: var(--border-radius);
     padding: 0.2em 0.7em;
 }
 
 .search-bar input:focus {
-    outline: 2px var(--color-highlight) solid;
+    outline: 1px var(--color-highlight) solid;
+    box-shadow: 1px 2px 3px var(--color-highlight);
+
 }
 
 .notification-panel {
@@ -179,8 +185,9 @@ button {
 .profile-pic {
     border-radius: 50%;
     width: 100%;
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
+    display: inline-block;
 }
 
 .notification-panel .username {
@@ -245,14 +252,82 @@ button {
     gap: 20px;
 }
 
-.feed .side-content {
+.feed {
     display: grid;
-    gap: 16px;
+    grid-auto-rows: min-content;
+    gap: 20px;
+}
+
+.announcement,
+.trending {
+    background-color: var(--color-primary-bg);
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: var(--box-shadow);
+}
+
+.trending {
+    display: grid;
+    grid-auto-rows: 50px;
+    gap: 14px;
+}
+
+.trending .project-info {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.trending .project-name {
+    display: inline-block;
+    position: relative;
+    font-size: 0.8rem;
+    color: var(--color-secondary-text);
+    margin-left: 0.8em;
+}
+
+.project-name::before {
+    position: absolute;
+    left: 0;
+    top: -18px;
+    color: var(--color-base-text);
+}
+
+.project-name[data-owner='@0xrob101']::before {
+    content: attr(data-owner);
+}
+
+.project-name[data-owner='@morgan']::before {
+    content: attr(data-owner);
+}
+
+.project-name[data-owner='@tegan']::before {
+    content: attr(data-owner);
+}
+
+.project-name[data-owner='@kendall']::before {
+    content: attr(data-owner);
+}
+
+.announcement h4 {
+    font-size: 0.7rem;
+}
+
+.announcement p {
+    font-size: 0.65rem;
+    color: var(--color-secondary-text);
+}
+
+.announcement .content {
+    padding: 10px 0;
+
+}
+
+.announcement .content:not(:last-child) {
+    border-bottom: 1px var(--color-secondary-text-2) solid;
 }
 
 .card {
-    /* width: 300px;
-    height: 200px; */
     background-color: var(--color-primary-bg);
     border-radius: 6px;
     border-left: 6px var(--color-highlight) solid;
