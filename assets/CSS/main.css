@@ -6,6 +6,7 @@
 
 :root {
     --border-radius: 1em;
+    --transition-slow: all 0.3s ease-in-out;
 }
 
 :root.dark {
@@ -42,6 +43,7 @@ body {
     grid-template-columns: 1fr 4fr;
     color: var(--color-base-text);
     background-color: var(--colo);
+    transition: var(--transition-slow);
 }
 
 button {
@@ -51,6 +53,10 @@ button {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .nav-bar ul,
 .header ul {
@@ -70,6 +76,8 @@ button {
     font-size: clamp(20px,calc(2vw + 0.2rem), 2rem);
     font-weight: 600;
     white-space: nowrap;
+    position: sticky;
+    top: 16px;
 }
 
 .branding svg,
@@ -79,10 +87,15 @@ button {
 }
 
 .branding,
-[class$=-nav] li {
+[class$=-nav] .nav-link {
     display: flex;
     align-items: center;
     gap: 16px;
+    transition: translate 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    translate: 6px 0;
 }
 
 .branding svg,
@@ -96,7 +109,7 @@ button {
 
 [class$=-nav] svg,
 .header svg {
-    width: 28px;
+    width: 26px;
 }
 
 [class$=-nav] {
@@ -108,12 +121,22 @@ button {
     margin-bottom: 0.5em;
 }
 
+.user-nav {
+    position: sticky;
+    top: calc(16px + 2rem + 4vw);
+}
+
+.system-nav {
+    position: sticky;
+    top: calc(16px + 2rem + 8vw + 13rem);
+}
 
 .container {
     background-color: var(--color-base-bg);
     color: var(--color-base-text);
     display: grid;
     grid-template-rows: 168px auto;
+    gap: 20px;
 }
 
 .main {
@@ -131,15 +154,20 @@ button {
     gap: 18px;
     padding: 16px 38px;
     box-shadow: var(--box-shadow);
+    position: sticky;
+    top: -75px;
+    z-index: 2;
     
 }
 
 .header .upper,
 .header .lower {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 44vw auto;
     align-items: center;
+    gap: 10px;
 }
+
 
 .header .justify-end{
     justify-self: end;
@@ -182,6 +210,10 @@ button {
     flex-shrink: 0;
 }
 
+.notification-icon {
+    cursor: pointer;
+}
+
 .profile-pic {
     border-radius: 50%;
     width: 100%;
@@ -191,7 +223,7 @@ button {
 }
 
 .notification-panel .username {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 900;
 }
 
@@ -232,6 +264,13 @@ button {
     font-weight: 500;
     color: var(--color-primary-text);
     background-color: var(--color-secondary-bg);
+    transition: var(--transition-slow);
+}
+
+.action-buttons .button:hover {
+    background-color: var(--color-highlight);
+    box-shadow: 1px 2px 3px var(--color-highlight);
+    transform: translateY(-1px);
 }
 
 .action-buttons > .button:not(:last-child) {
@@ -291,6 +330,7 @@ button {
     left: 0;
     top: -18px;
     color: var(--color-base-text);
+    font-weight: 500;
 }
 
 .project-name[data-owner='@0xrob101']::before {
@@ -334,7 +374,13 @@ button {
     padding: 20px 16px;
     box-shadow: var(--box-shadow);
     position: relative;
+    cursor: pointer;
+    transition: var(--transition-slow);
 
+}
+
+.card:hover {
+    transform: scale(1.01);
 }
 
 .card-title {
@@ -360,4 +406,23 @@ button {
 .card-footer svg {
     display: inline-block;
     width: 20px;
+}
+
+.footer {
+    padding: 20px;
+    justify-self: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-secondary-text);
+    opacity: 0.9;
+}
+
+.footer  a {
+    text-decoration: none;
+    color: var(--color-highlight);
+    transition: var(--transition-slow);
+}
+
+.footer a:hover {
+    color: var(--color-secondary-bg);
 }
