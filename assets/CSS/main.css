@@ -7,17 +7,20 @@
 :root {
     --border-radius: 1em;
     --transition-slow: all 0.3s ease-in-out;
+    --box-shadow: 1px 2px 3px var(--color-box-shadow);
 }
 
 :root.dark {
-    --color-base-bg: #010409;
+    --color-base-bg: #101828;
     --color-primary-bg: #3d444d;
-    --color-secondary-bg: #212830;
+    --color-secondary-bg: #009689;
     --color-base-text: #f0f6fc;
-
-
-    /* --border-btn: 1px solid rgb(220, 220, 220);
-    --color-btn-bg: rgb(36, 36, 36); */
+    --color-primary-text: #f1f1f1;
+    --color-secondary-text: rgb(169, 169, 169);
+    --color-secondary-text-2: rgba(169, 169, 169, 0.2);
+    --color-highlight: #F0B429;
+    --color-svg-fill: var(--color-base-text);
+    --color-box-shadow: rgba(0, 0, 0, 0.8);
 }
 
 :root.light {
@@ -25,14 +28,12 @@
     --color-primary-bg: #FFFFFF;
     --color-secondary-bg:#1992D4;
     --color-base-text: #010409;
-
     --color-primary-text: #fff;
     --color-secondary-text: rgb(59, 58, 58);
     --color-secondary-text-2: rgba(59, 58, 58, 0.2);
     --color-highlight: #F0B429;
-    --box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-    /* --border-btn: 1px solid rgb(36, 36, 36);
-    --color-btn-bg: rgb(220, 220, 220); */
+    --color-svg-fill: var(--color-base-text);
+    --color-box-shadow: rgba(0, 0, 0, 0.3);
 }
 
 
@@ -43,6 +44,10 @@ body {
     grid-template-columns: 1fr 4fr;
     color: var(--color-base-text);
     background-color: var(--colo);
+    transition: var(--transition-slow);
+}
+
+* {
     transition: var(--transition-slow);
 }
 
@@ -72,21 +77,24 @@ a {
     row-gap: 4vmax;
 }
 
-.branding {
-    font-size: clamp(20px,calc(2vw + 0.2rem), 2rem);
-    font-weight: 600;
-    white-space: nowrap;
+.brand-ctn {
     position: sticky;
     top: 16px;
 }
 
-.branding svg,
+.logo {
+    font-size: clamp(20px,calc(2vw + 0.2rem), 2rem);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.logo svg,
  [class$=-nav] svg {
     display: inline;
     fill: var(--color-primary-text);
 }
 
-.branding,
+.logo,
 [class$=-nav] .nav-link {
     display: flex;
     align-items: center;
@@ -98,12 +106,12 @@ a {
     translate: 6px 0;
 }
 
-.branding svg,
+.logo svg,
 [class$=-nav] li svg {
     flex-shrink: 0;
 }
 
-.branding svg {
+.logo svg {
     width: max(38px, 22%);
 }
 
@@ -139,12 +147,17 @@ a {
     gap: 20px;
 }
 
+.container svg {
+    fill: var(--color-svg-fill);
+}
+
 .main {
     padding: 20px;
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 20px;
 }
+
 
 .header {
     background-color: var(--color-primary-bg);
@@ -159,6 +172,7 @@ a {
     z-index: 2;
     
 }
+
 
 .header .upper,
 .header .lower {
@@ -212,6 +226,10 @@ a {
 
 .notification-icon {
     cursor: pointer;
+}
+
+.notification-icon.hidden {
+    display: none;
 }
 
 .profile-pic {
